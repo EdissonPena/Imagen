@@ -15,7 +15,7 @@ jobs:
       uses: redhat-actions/s2i-build@v2
       with:
         path_context: '.'
-        builder_images: 'registry.access.redhat.com/openjdk/openjdk-11-rhel7'
+        builder_image: 'registry.access.redhat.com/openjdk/openjdk-11-rhel7'
         image: 'demo'
         tags: 'v1'
     - name: Quay
