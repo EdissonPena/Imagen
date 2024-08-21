@@ -1,0 +1,29 @@
+name: Test Springboot Docker
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Podman
+      run: podman --version
+    - name: Repo
+      uses: actions/checkout@v4
+    - name: S2I
+      id: build_image
+      uses: redhat-actions/s2i-build@v2
+      with:
+        path_context: '.'
+        builder_images: 'registry.access.redhat.com/openjdk/openjdk-11-rhel7'
+        image: 'demo'
+        tags: 'v1'
+    - name: Quay
+      uses: redhat-actions/push-to-registry@v2
+      with:
+        image: ${{ steps.build_image.outputs.image }}
+        tags: ${{ steps.build_image.outputs.tags }}
+        registry: quay.io/edisson_pena
+        username: edisson_pena
+        password: Credibanco2024
+
