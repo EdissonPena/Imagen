@@ -13,16 +13,12 @@ jobs:
         java -version
     - name: Repo
       uses: actions/checkout@v4
-    - name: Java
-      uses: actions/setup-java@v1
-      with: 
-        java-version: 17
     - name: S2I
       id: build_image
       uses: redhat-actions/s2i-build@v2
       with:
         path_context: '.'
-        builder_image: 'registry.access.redhat.com/openjdk/openjdk-11-rhel7'
+        builder_image: 'registry.access.redhat.com/ubi9/openjdk-17'
         image: 'demo'
         tags: 'v1'
     - name: Quay
