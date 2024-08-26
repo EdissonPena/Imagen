@@ -30,10 +30,10 @@ jobs:
         username: edisson_pena
         password: Credibanco2024
     - name: Login
-        uses: redhat-actions/oc-login@v1
-        with:
-          openshift_server_url: https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443
-          openshift_token: sha256~v-SNGBAQuBeZ4vFkElfewEytQYxkEoEyC0USf5zOrw0
-          insecure_skip_tls_verify: true
-          namespace: edisson-pena-dev
+      uses: redhat-actions/oc-login@v1
+      with:
+        openshift_server_url: https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443
+        openshift_token: sha256~v-SNGBAQuBeZ4vFkElfewEytQYxkEoEyC0USf5zOrw0
+        insecure_skip_tls_verify: true
+        namespace: edisson-pena-dev
 
