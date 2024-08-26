@@ -20,7 +20,7 @@ jobs:
         path_context: '.'
         builder_image: 'registry.access.redhat.com/ubi9/openjdk-17'
         image: 'demo'
-        tags: 'v1'
+        tags: 'v2'
     - name: Quay
       uses: redhat-actions/push-to-registry@v2
       with:
@@ -29,4 +29,11 @@ jobs:
         registry: quay.io/edisson_pena
         username: edisson_pena
         password: Credibanco2024
+    - name: Login
+        uses: redhat-actions/oc-login@v1
+        with:
+          openshift_server_url: https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443
+          openshift_token: sha256~v-SNGBAQuBeZ4vFkElfewEytQYxkEoEyC0USf5zOrw0
+          insecure_skip_tls_verify: true
+          namespace: edisson-pena-dev
 
