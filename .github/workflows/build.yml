@@ -29,6 +29,10 @@ jobs:
         registry: quay.io/edisson_pena
         username: edisson_pena
         password: Credibanco2024
+    - name: Client
+      uses: redhat-actions/oc-installer@v1
+      with:
+        oc_version: '4.16'
     - name: Login
       uses: redhat-actions/oc-login@v1
       with:
