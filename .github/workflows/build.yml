@@ -20,7 +20,7 @@ jobs:
         path_context: '.'
         builder_image: 'registry.access.redhat.com/ubi9/openjdk-17'
         image: 'demo'
-        tags: 'v2'
+        tags: 'v3'
     - name: Quay
       uses: redhat-actions/push-to-registry@v2
       with:
@@ -40,4 +40,12 @@ jobs:
         openshift_token: sha256~v-SNGBAQuBeZ4vFkElfewEytQYxkEoEyC0USf5zOrw0
         insecure_skip_tls_verify: true
         namespace: edisson-pena-dev
-
+    - name: Deploy
+      uses: redhat-actions/oc-new-app@v1
+      with:
+        app_name: demo
+        image: quay.io/edisson_pena/demo:v1
+        namespace: edisson-pena-dev
+        registry: quay.io
+        registry_username: edisson_pena
+        registry_password: Credibanco2024
