@@ -46,6 +46,6 @@ jobs:
         app_name: demo
         image: quay.io/edisson_pena/demo:v1
         namespace: edisson-pena-dev
-        registry: quay.io
+        registry_hostname: quay.io
         registry_username: edisson_pena
         registry_password: Credibanco2024
